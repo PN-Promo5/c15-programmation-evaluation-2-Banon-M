@@ -1,0 +1,12 @@
+th, td{
+	border: 1px solid black;
+	text-align: left;
+	font-weight: normal;
+	font-size: 1rem;
+}
+th{
+font-size: 0.8rem;
+}
+div{
+	margin-bottom: 10rem;
+}
