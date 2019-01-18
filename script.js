@@ -87,10 +87,11 @@ while (i < table.length) {
   }
   i++;
 }
-return;
+return tableElement;
 };
 
 displayTableMovies(moviesWeek);
+
 
 
 
@@ -112,48 +113,23 @@ document.body.appendChild(cntChimicalSubstance);
 function  displayCondition (table, number){
 	let i = 1;
 	let j = 0;
-	let k = 2;
 	let currentElement; 
 	let currentElement2;
-	let currentElement3;
 
-	let tableElement = document.createElement("table"); 
-	cntChimicalSubstance.appendChild(tableElement);
-
-	let theadElement = document.createElement("thead");
-	tableElement.appendChild(theadElement);
-
-	let trThead = document.createElement("tr");
-	theadElement.appendChild(trThead);
-
-	let tBodyElement = document.createElement("tbody"); 
-	tableElement.appendChild(tBodyElement);
-
-	currentElement3 = table[0];
-
-	while (k < currentElement3.length) {//it will retrieve the element of index 0 of the table that are the headers.
-		let thElement = document.createElement("th"); 
-		thElement.textContent = currentElement3[k];
-		trThead.appendChild(thElement);
-		k++;
-	};
+	let table2 = []//creating the table that hosts the elements
 
 	while (i < table.length) {
-		currentElement = table[i];
+		currentElement = table[i]; //is worth the table line
 		j = 2; //Recovers the 3rd cell corresponding to the debulking temperature 
-		let trElement = document.createElement("tr");
-		tableElement.appendChild(trElement);
+		
 		while (currentElement[j] < number) {   //continuation condition
+			j=0; // takes the first value of the line
 			currentElement2 = currentElement[j];
-			let tdElement = document.createElement("td");
-			tdElement.textContent = currentElement2;
-			trElement.appendChild(tdElement);
-			j++;
+			table2.push(currentElement2);
 		}
 		i++;
 	}
-	return
+	return table2;
 };
 
-displayCondition(tableChimical, 120); //call function for 300°C
-
+displayCondition(tableChimical, 120); //call function for 120°C
